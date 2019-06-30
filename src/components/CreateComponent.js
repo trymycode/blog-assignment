@@ -15,7 +15,7 @@ class CreateComponent extends Component {
       </div>
       <div className="form-group row">
         <div className="col-sm-10">
-        <textarea class="form-control rounded border border-secondary" id="exampleFormControlTextarea1" rows="3" 
+        <textarea className="form-control rounded border border-secondary" id="exampleFormControlTextarea1" rows="3" 
         placeholder="Description"></textarea>
         </div>
       </div>

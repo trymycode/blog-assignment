@@ -1,0 +1,9 @@
+.blogs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.main-page {
+  margin-bottom: 5rem;
+}
