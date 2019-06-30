@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import BlogComponent from './components/BlogComponent';
+import 'bootstrap/dist/css/bootstrap.css';
+import CreateComponent from './components/CreateComponent';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>From appjs</h1>
-        <BlogComponent/>
+        <CreateComponent/>
       </div>
     )
   }
