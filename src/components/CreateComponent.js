@@ -4,7 +4,10 @@ class CreateComponent extends Component {
   render() {
     return (
       <div>
-        <form>
+      <header>
+        <h2>Create</h2>
+      </header>
+      <form>
       <div className="form-group row">
         <div className="col-sm-10">
           <input type="text" className="form-control rounded border border-secondary" id="staticEmail" placeholder="Title" />
