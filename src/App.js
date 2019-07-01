@@ -17,12 +17,34 @@ class App extends Component {
   componentDidMount() {
     axios.get(`http://test.peppersquare.com/api/v1/article`)
     .then(res => {
-      // console.log("Response->", res.data)
       const blogs = res.data;
       this.setState({
         blogs: blogs
       });
     })
+  }
+ 
+  createBlog = (title, author, description, tags, image, published) =>{
+  
+    const newBlog = {
+      title: title,
+      author: author,
+      description: description,
+      tags: [tags],
+      image: image,
+      published: published
+    }
+
+  
+    axios.post("http://test.peppersquare.com/api/v1/article",newBlog)
+    .then(res => {
+      console.log("Response",res)
+      this.setState({
+        blogs: [...this.state.blogs, res.blogs]
+      })
+     
+    })
+    .catch(err=> console.log(err.response))
   }
   render() {
     return (
@@ -31,19 +53,11 @@ class App extends Component {
            component={() => <HomeComponent blogs={this.state.blogs} />}>
 
           </Route>
-          <Route exact path="/create" component={CreateComponent}></Route>
+          <Route exact path="/create" 
+          component={()=><CreateComponent createBlog={this.createBlog}/>}>
+          </Route>
           <Route exact path="/details" component={DetailsComponent}></Route>
       </Router>
-      
-      
-      // <Router>
-      //   <div className="container">
-      //     <Route exact path="/" component={HomeComponent}></Route>
-      //     <Route exact path="/create" component={CreateComponent}></Route>
-      //     <Route exact path="/details" component={DetailsComponent}></Route>
-      //     <FooterComponent />
-      //   </div>
-      // </Router>
     )
   }
 }

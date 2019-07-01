@@ -5,21 +5,6 @@ import FooterComponent from './FooterComponent';
 // import axios from 'axios';
 
 class HomeComponent extends Component {
-  constructor(props) {
-    super(props);
-   
-  }
-
-  // componentDidMount() {
-  //   axios.get(`http://test.peppersquare.com/api/v1/article`)
-  //   .then(res => {
-  //     console.log("Response->", res.data)
-  //     const blogs = res.data;
-  //     this.setState({
-  //       blogs: blogs
-  //     });
-  //   })
-  // }
   render() {
     console.log("Props of Home Component from app component",this.props);
     return (
@@ -30,14 +15,17 @@ class HomeComponent extends Component {
           <div className="blogs">
           {this.props.blogs.map(blog => 
           <BlogComponent
-            key={blog.id}
-            author={blog.author} 
-            date={blog.created_at}
-            image={blog.image}
-            title={blog.title}
-            likes={blog.likes}
-            description={blog.description}
-            tags={blog.tags}
+            data={{
+            key:blog.id,
+            author:blog.author, 
+            date:blog.created_at,
+            image:blog.image,
+            title:blog.title,
+            likes:blog.likes,
+            description:blog.description,
+            tags:blog.tags
+            }}
+            key = {blog.id}
           />)}
           </div>
         </div>

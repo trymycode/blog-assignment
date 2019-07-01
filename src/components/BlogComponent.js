@@ -6,8 +6,8 @@ export default class BlogComponent extends React.Component {
   cardStyle = { width: "18rem" };
 
   render() {
-    let { title, description, author, image, likes, date, tags } = this.props;
-
+    let { title, description, author, image, likes, date, tags } = this.props.data;
+    let shortDescription = description.toString().substring(0,50);
     return (
 
       <div className="card" style={this.cardStyle}>
@@ -18,7 +18,7 @@ export default class BlogComponent extends React.Component {
             <span className="badge badge-warning" key={index}>{tag}</span>
           )}
           <h6 className="text-muted">{author} | <small>{new Date(date).toLocaleString()}</small></h6>
-          <p className="card-text">{description.substring(0, 100)}...</p>
+          <p className="card-text">{shortDescription}...</p>
           <button className="btn btn-primary">Like</button>
           <div className="float-right text-muted">
             <span className="heart">&#10084;</span> {likes} likes

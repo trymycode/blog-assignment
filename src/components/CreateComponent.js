@@ -9,26 +9,45 @@ class CreateComponent extends Component {
       description:"",
       tags: [],
       author:"",
-      imageUrl:""
+      image:"",
+      published: true
     }
   }
   onChange = (e) => {
       this.setState({
-        [e.target.name]: [e.target.value]
+        [e.target.name]: e.target.value
       })
   }
 
   onSubmit = (e) =>{
     e.preventDefault();
+    console.log("onsubmit is called");
+    this.props.createBlog(
+      this.state.title, 
+      this.state.description,
+      this.state.author,
+      this.state.tags,
+      this.state.image,
+      this.state.published);
+    
+    // this.setState({
+    //   title:"",
+    //   description:"",
+    //   tags: [],
+    //   author:"",
+    //   image:"",
+    //   published: true
+    // })
   }
   render() {
+    console.log(this.props)
     return (
       <div>
       <div className="container">
       <header>
         <h2>Create</h2>
       </header>
-      <form>
+      <form onSubmit={this.onSubmit}>
       <div className="form-group row">
         <div className="col-sm-10">
           <input 
@@ -78,14 +97,16 @@ class CreateComponent extends Component {
           <input 
           type="text" 
           className="form-control rounded border border-secondary" 
-          name="imageUrl" 
+          name="image" 
           placeholder="Image URL Only" 
-          value= {this.state.imageUrl} 
+          value= {this.state.image} 
           onChange={this.onChange}/>
         </div>
       </div>
+      <input type="submit" value="PUBLISH" className="btn btn-info"/>
+     
    </form>
-   <button className="btn btn-outline-info" onSubmit={this.onSubmit}>PUBLISH</button>
+   
     
   </div>
   <FooterComponent/> 
