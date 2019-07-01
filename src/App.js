@@ -5,6 +5,7 @@ import CreateComponent from './components/CreateComponent';
 // import FooterComponent from './components/FooterComponent';
 import HomeComponent from './components/HomeComponent';
 import DetailsComponent from './components/DetailsComponent';
+import PopularComponent from './components/PopularComponent';
 import axios from 'axios';
 
 class App extends Component {
@@ -57,6 +58,7 @@ class App extends Component {
           component={()=><CreateComponent createBlog={this.createBlog}/>}>
           </Route>
           <Route exact path="/details" component={DetailsComponent}></Route>
+          <Route exact path="/popular" component={PopularComponent}></Route>
       </Router>
     )
   }
