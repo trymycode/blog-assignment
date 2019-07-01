@@ -1,37 +1,34 @@
 import React, { Component } from 'react'
 import BlogComponent from './BlogComponent';
-import "./HomeComponent.css"
-import axios from 'axios';
+import "./HomeComponent.css";
+import FooterComponent from './FooterComponent';
+// import axios from 'axios';
 
 class HomeComponent extends Component {
-
-  componentDidMount() {
-    axios.get(`http://test.peppersquare.com/api/v1/article`)
-    .then(res => {
-      const blogs = res.data;
-      this.setState({
-        blogs: blogs
-      });
-    })
-  }
-
   constructor(props) {
     super(props);
-    this.state = {
-      blogs: []
-    }
+   
   }
 
+  // componentDidMount() {
+  //   axios.get(`http://test.peppersquare.com/api/v1/article`)
+  //   .then(res => {
+  //     console.log("Response->", res.data)
+  //     const blogs = res.data;
+  //     this.setState({
+  //       blogs: blogs
+  //     });
+  //   })
+  // }
   render() {
+    console.log("Props of Home Component from app component",this.props);
     return (
       <div className="main-page">
-        <div className="container">
-        <header>
-          <h1>Blog App</h1>
-        </header>
-        <main>
+      <div className="container">
+       <div className="position">Home</div>
+    
           <div className="blogs">
-          {this.state.blogs.map(blog => 
+          {this.props.blogs.map(blog => 
           <BlogComponent
             key={blog.id}
             author={blog.author} 
@@ -43,8 +40,8 @@ class HomeComponent extends Component {
             tags={blog.tags}
           />)}
           </div>
-        </main>
-      </div>
+        </div>
+        <FooterComponent />
       </div>
     )
   }
