@@ -6,7 +6,7 @@ import FooterComponent from './FooterComponent';
 
 class HomeComponent extends Component {
   render() {
-    console.log("Props of Home Component from app component",this.props);
+    // console.log("Props of Home Component from app component",this.props);
     return (
       <div className="main-page">
       <div className="container">
@@ -17,6 +17,7 @@ class HomeComponent extends Component {
           <BlogComponent
             data={{
             key:blog.id,
+            id:blog.id,
             author:blog.author, 
             date:blog.created_at,
             image:blog.image,

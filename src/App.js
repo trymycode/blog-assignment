@@ -57,7 +57,7 @@ class App extends Component {
           <Route exact path="/create" 
           component={()=><CreateComponent createBlog={this.createBlog}/>}>
           </Route>
-          <Route exact path="/details" component={DetailsComponent}></Route>
+          <Route exact path="/details/:id" component={DetailsComponent}></Route>
           <Route exact path="/popular" component={PopularComponent}></Route>
       </Router>
     )
