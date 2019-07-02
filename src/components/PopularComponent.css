@@ -8,3 +8,12 @@
   width: 100%;
   margin-bottom: 0.5rem;
 }
+.blogs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.main-page {
+  margin-bottom: 5rem;
+}

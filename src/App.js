@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CreateComponent from './components/CreateComponent';
-// import FooterComponent from './components/FooterComponent';
+import FooterComponent from './components/FooterComponent';
 import HomeComponent from './components/HomeComponent';
 import DetailsComponent from './components/DetailsComponent';
 import PopularComponent from './components/PopularComponent';
@@ -57,7 +57,8 @@ class App extends Component {
           component={() => <CreateComponent createBlog={this.createBlog} />}>
         </Route>
         <Route exact path="/details/:id" component={DetailsComponent}></Route>
-        <Route exact path="/popular" component={PopularComponent}></Route>
+        <Route exact path="/popular" component={() => <PopularComponent blogs={this.state.blogs} />}></Route>
+        <FooterComponent/>
       </Router>
     )
   }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import FooterComponent from './FooterComponent';
 import './CreateComponent.css';
 class CreateComponent extends Component {
   
@@ -30,16 +29,7 @@ class CreateComponent extends Component {
       this.state.tags,
       this.state.image,
       this.state.published);
-    
-    // this.setState({
-    //   title:"",
-    //   description:"",
-    //   tags: [],
-    //   author:"",
-    //   image:"",
-    //   published: true
-    // })
-  }
+     }
   render() {
     // console.log(this.props)
     return (
@@ -108,7 +98,6 @@ class CreateComponent extends Component {
    
     
   </div>
-  <FooterComponent/> 
   </div>
           
           )

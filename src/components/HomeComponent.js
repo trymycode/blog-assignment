@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import BlogComponent from './BlogComponent';
 import "./HomeComponent.css";
-import FooterComponent from './FooterComponent';
 class HomeComponent extends Component {
   render() {
     return (
@@ -25,7 +24,6 @@ class HomeComponent extends Component {
               />)}
           </div>
         </div>
-        <FooterComponent />
       </div>
     )
   }
