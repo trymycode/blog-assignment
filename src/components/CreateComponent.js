@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FooterComponent from './FooterComponent';
+import './CreateComponent.css';
 class CreateComponent extends Component {
   
   constructor(props){
@@ -43,12 +44,10 @@ class CreateComponent extends Component {
     // console.log(this.props)
     return (
       <div>
+      <div className="position">Create</div>
       <div className="container">
-      <header>
-        <h2>Create</h2>
-      </header>
-      <form onSubmit={this.onSubmit}>
-      <div className="form-group row">
+      <form onSubmit={this.onSubmit} className="w-100 text-center">
+      <div className="form-group row center">
         <div className="col-sm-10">
           <input 
           type="text" 
@@ -103,7 +102,7 @@ class CreateComponent extends Component {
           onChange={this.onChange}/>
         </div>
       </div>
-      <input type="submit" value="PUBLISH" className="btn btn-info"/>
+      <input type="submit" value="PUBLISH" className="btn btn-info btn-block col-sm-10"/>
      
    </form>
    

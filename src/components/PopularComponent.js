@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import FooterComponent from './FooterComponent';
 
  class PopularComponent extends Component {
   render() {
     return (
       <div>
-        <h3>Popular Component</h3>
+        <div className="position">Most Popular</div>
+        <div className="container"></div>
+        <FooterComponent/>
       </div>
     )
   }

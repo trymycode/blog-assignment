@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CreateComponent from './components/CreateComponent';
 // import FooterComponent from './components/FooterComponent';
 import HomeComponent from './components/HomeComponent';
@@ -17,16 +17,16 @@ class App extends Component {
   }
   componentDidMount() {
     axios.get(`http://test.peppersquare.com/api/v1/article`)
-    .then(res => {
-      const blogs = res.data;
-      this.setState({
-        blogs: blogs
-      });
-    })
+      .then(res => {
+        const blogs = res.data;
+        this.setState({
+          blogs: blogs
+        });
+      })
   }
- 
-  createBlog = (title, author, description, tags, image, published) =>{
-  
+
+  createBlog = (title, author, description, tags, image, published) => {
+
     const newBlog = {
       title: title,
       author: author,
@@ -36,29 +36,28 @@ class App extends Component {
       published: published
     }
 
-  
-    axios.post("http://test.peppersquare.com/api/v1/article",newBlog)
-    .then(res => {
-      console.log("Response",res)
-      this.setState({
-        blogs: [...this.state.blogs, res.blogs]
+
+    axios.post("http://test.peppersquare.com/api/v1/article", newBlog)
+      .then(res => {
+        console.log("Response", res)
+        this.setState({
+          blogs: [...this.state.blogs, res.blogs]
+        })
+
       })
-     
-    })
-    .catch(err=> console.log(err.response))
+      .catch(err => console.log(err.response))
   }
   render() {
     return (
       <Router>
-          <Route exact path="/" 
-           component={() => <HomeComponent blogs={this.state.blogs} />}>
-
-          </Route>
-          <Route exact path="/create" 
-          component={()=><CreateComponent createBlog={this.createBlog}/>}>
-          </Route>
-          <Route exact path="/details/:id" component={DetailsComponent}></Route>
-          <Route exact path="/popular" component={PopularComponent}></Route>
+        <Route exact path="/"
+          component={() => <HomeComponent blogs={this.state.blogs} />}>
+        </Route>
+        <Route exact path="/create"
+          component={() => <CreateComponent createBlog={this.createBlog} />}>
+        </Route>
+        <Route exact path="/details/:id" component={DetailsComponent}></Route>
+        <Route exact path="/popular" component={PopularComponent}></Route>
       </Router>
     )
   }
