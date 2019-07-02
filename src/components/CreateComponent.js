@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './CreateComponent.css';
+import "./CreateComponent.css";
 class CreateComponent extends Component {
   
   constructor(props){
@@ -29,15 +29,25 @@ class CreateComponent extends Component {
       this.state.tags,
       this.state.image,
       this.state.published);
-     }
+    
+    // this.setState({
+    //   title:"",
+    //   description:"",
+    //   tags: [],
+    //   author:"",
+    //   image:"",
+    //   published: true
+    // })
+  }
   render() {
     // console.log(this.props)
     return (
       <div>
       <div className="position">Create</div>
       <div className="container">
-      <form onSubmit={this.onSubmit} className="w-100 text-center">
-      <div className="form-group row center">
+     
+      <form onSubmit={this.onSubmit} className="text-center">
+      <div className="form-group row">
         <div className="col-sm-10">
           <input 
           type="text" 
@@ -92,12 +102,13 @@ class CreateComponent extends Component {
           onChange={this.onChange}/>
         </div>
       </div>
-      <input type="submit" value="PUBLISH" className="btn btn-info btn-block col-sm-10"/>
+      <input type="submit" value="PUBLISH" className="btn btn-info col-sm-10 text-center"/>
      
    </form>
    
     
   </div>
+  {/* <FooterComponent/>  */}
   </div>
           
           )

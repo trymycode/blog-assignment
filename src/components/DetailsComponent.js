@@ -1,12 +1,23 @@
 import React, { Component } from 'react'
-import FooterComponent from './FooterComponent';
+// import FooterComponent from './FooterComponent';
 import axios from 'axios';
 class DetailsComponent extends Component {
+
+  // blogDetails = [{
+  //   author: '',
+  //   tags: [''],
+  //   likes: 0,
+  //   published: false,
+  //   description: '',
+  //   image: '',
+  //   date: ''
+  // }];
+
   constructor(props) {
     super(props);
     this.state = {
       blogs: [],
-      blogDetails: [{
+      blogDetails : [{
         author: '',
         tags: [''],
         likes: 0,
@@ -23,14 +34,19 @@ class DetailsComponent extends Component {
         this.setState({
           blogDetails: res.data.filter(blog => blog.id === Number(this.props.match.params.id))
         })
+        // this.blogDetails = res.data.filter(blog => blog.id === Number(this.props.match.params.id));
         console.log(this.state.blogDetails[0]);
+        // this.setState({
+        //   blogs: blogs
+        // });
       })
   }
 
   render() {
+    // console.log("Details props", this.props.match.params.id)
     return (
       <div>
-        <img src={this.state.blogDetails[0].image} className="card-img-top" />
+      <img src={this.state.blogDetails[0].image} className="card-img-top" alt={this.state.blogDetails[0].title} />
         <div className="container">
           <div className="card">
             <div className="card-body">

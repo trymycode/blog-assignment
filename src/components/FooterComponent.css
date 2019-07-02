@@ -5,3 +5,7 @@
   box-shadow: 0 2px 10px black;
   width: 100vw;
 }
+
+.footer i {
+  cursor: pointer;
+}

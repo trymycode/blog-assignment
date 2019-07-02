@@ -5,13 +5,6 @@ import "./PopularComponent.css";
 // import axios from 'axios';
 
 class PopularComponent extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      descendingBlogs : this.props.blogs.sort(this.compare)
-    }
-  }
   compare = (a, b) => {
     // Use toUpperCase() to ignore character casing
     const genreA = a.likes;
@@ -26,13 +19,25 @@ class PopularComponent extends Component {
     return comparison * -1;
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      descendingBlogs : this.props.blogs.sort(this.compare)
+    }
+  }
+
+  // bands.sort(compare);
 
   render() {
-  
+    // console.log(
+    //   "Props of Home Component from app component",
+    //   JSON.stringify()
+    // );
     return (
       <div className="main-page">
-         <div className="position">Most Popular</div>
         <div className="container">
+          <div className="position">Most Popular</div>
+
           <div className="blogs">
             {this.state.descendingBlogs.map(blog => (
               <BlogComponent
