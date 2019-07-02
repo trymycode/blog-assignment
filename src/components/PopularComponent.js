@@ -5,6 +5,13 @@ import "./PopularComponent.css";
 // import axios from 'axios';
 
 class PopularComponent extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      descendingBlogs : this.props.blogs.sort(this.compare)
+    }
+  }
   compare = (a, b) => {
     // Use toUpperCase() to ignore character casing
     const genreA = a.likes;
@@ -19,13 +26,6 @@ class PopularComponent extends Component {
     return comparison * -1;
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      descendingBlogs : this.props.blogs.sort(this.compare)
-    }
-  }
- 
 
   render() {
   
