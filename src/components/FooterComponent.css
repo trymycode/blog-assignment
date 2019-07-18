@@ -9,3 +9,6 @@
 .footer i {
   cursor: pointer;
 }
+i.fa.fa-2x.fa-heart :hover {
+  color: red !important;
+}
